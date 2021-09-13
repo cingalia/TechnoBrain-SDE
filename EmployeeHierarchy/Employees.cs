@@ -6,7 +6,7 @@ namespace EmployeeHierarchy
     {
         public Employees(string csv)
         {
-
+            //The salaries in the CSV are valid integer numbers
         }
     }
 }
