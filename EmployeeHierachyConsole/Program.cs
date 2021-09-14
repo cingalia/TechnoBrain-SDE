@@ -2,29 +2,30 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
-namespace EmployeeHierarchy
+namespace EmployeeHierachyConsole
 {
-    public class Employees
+    class Program
     {
-        private readonly string csv;
-        private readonly List<Hierarchy> hierarchyList;
-        public Employees(string _csv)
+        static void Main(string[] args)
         {
-            csv = _csv;
-            hierarchyList = new List<Hierarchy>();
+            Console.WriteLine("Testing");
 
-            //The salaries in the CSV are valid integer numbers
-            ValidateSalaries();
+            StringBuilder csvData = new StringBuilder();
+            csvData.AppendLine("Emplyee4,Employee2,500");
+            csvData.AppendLine("Employee3,Employee1,800");
+            //csvData.AppendLine("Employee3,Employee2,800");
+            csvData.AppendLine("Employee1,,1000");
+            csvData.AppendLine("Employee5,Employee1,500");
+            csvData.AppendLine("Employee2,Employee1,500");
 
-            //Validate Employee
-            ValidateEmployee();
-        }
+            var _csvData = csvData.ToString();
 
-        //Validate Salaries
-        public void ValidateSalaries()
-        {
-            foreach (var lineData in csv.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
+            var hierarchyList = new List<Hierarchy>();
+
+            //Validate Salary
+            foreach (var lineData in _csvData.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
             {
                 string[] splitCsv = lineData.Split(',');
                 var hierarchy = new Hierarchy();
@@ -37,11 +38,9 @@ namespace EmployeeHierarchy
                 hierarchy.Salary = integerResult ? salary : throw new InvalidOperationException("Salary is not an integer");
                 hierarchyList.Add(hierarchy);
             }
-        }
 
-        //Validate Employee
-        public void ValidateEmployee()
-        {
+            //Validate employee
+
             if ((from e in hierarchyList
                  group e by e.EmployeeId into g
                  where g.Count() > 1
@@ -49,6 +48,8 @@ namespace EmployeeHierarchy
             {
                 throw new InvalidOperationException("Employee contains more than one manager");
             }
+
+            Console.ReadKey();
         }
     }
 }
