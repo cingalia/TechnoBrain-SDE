@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exercise02", "Exercise02\Ex
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeesHierarchyTest", "EmployeesHierarchyTest\EmployeesHierarchyTest.csproj", "{50433258-3611-4A83-B2A1-8DEC51631FA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmployeeHierachyConsole", "EmployeeHierachyConsole\EmployeeHierachyConsole.csproj", "{15D979E6-3DFD-41CF-8473-A070E42E0363}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{50433258-3611-4A83-B2A1-8DEC51631FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50433258-3611-4A83-B2A1-8DEC51631FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50433258-3611-4A83-B2A1-8DEC51631FA8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{15D979E6-3DFD-41CF-8473-A070E42E0363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{15D979E6-3DFD-41CF-8473-A070E42E0363}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{15D979E6-3DFD-41CF-8473-A070E42E0363}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{15D979E6-3DFD-41CF-8473-A070E42E0363}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

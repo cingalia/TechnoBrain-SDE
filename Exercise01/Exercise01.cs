@@ -30,8 +30,14 @@ namespace Exercise01
                 return ConvertBigNumberBigToString(n, (System.Numerics.BigInteger)1e15, "quadrillion");
             if (n < (System.Numerics.BigInteger) 1e21)
                 return ConvertBigNumberBigToString(n, (System.Numerics.BigInteger)1e18, "quintillion");
-            //if (n < 1e12)
-            return ConvertBigNumberToString(n, (int)1e9, "Nonillion");
+            if (n < (System.Numerics.BigInteger)1e24)
+                return ConvertBigNumberBigToString(n, (System.Numerics.BigInteger)1e21, "sextillion");
+            if (n < (System.Numerics.BigInteger)1e27)
+                return ConvertBigNumberBigToString(n, (System.Numerics.BigInteger)1e24, "septillion");
+            if (n < (System.Numerics.BigInteger)1e30)
+                return ConvertBigNumberBigToString(n, (System.Numerics.BigInteger)1e27, "0ctillion");
+
+            return ConvertBigNumberBigToString(n, (System.Numerics.BigInteger)1e30, "nonillion");
         }
 
         private static string ConvertDigitToString(System.Numerics.BigInteger _i)
