@@ -7,6 +7,27 @@ namespace Exercise02
     {
         static void Main(string[] args)
         {
+            
+            
+            Interact();
+
+            Console.ReadKey();
+
+            //var input = Console.ReadLine();
+            //if (input == "Y")
+            //{
+            //    Interact();
+            //}
+            //else
+            //{
+            //    Console.ReadKey();
+            //}
+
+            
+        }
+
+        static void Interact()
+        {
             //Get user input
             Console.WriteLine("Please enter numeric value");
             var _input = Console.ReadLine();
@@ -21,7 +42,7 @@ namespace Exercise02
 
             Console.WriteLine(output);
 
-            Console.ReadKey();
+            Interact();
         }
 
         static string ReplaceLast(string find, string replace, string str)
