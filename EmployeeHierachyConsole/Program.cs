@@ -15,7 +15,7 @@ namespace EmployeeHierachyConsole
             StringBuilder csvData = new StringBuilder();
             csvData.AppendLine("Emplyee4,Employee2,500");
             csvData.AppendLine("Employee3,Employee1,800");
-            //csvData.AppendLine("Employee3,Employee2,800");
+            //csvData.AppendLine("Employee6,,800");
             csvData.AppendLine("Employee1,,1000");
             csvData.AppendLine("Employee5,Employee1,500");
             csvData.AppendLine("Employee2,Employee1,500");
@@ -47,6 +47,12 @@ namespace EmployeeHierachyConsole
                  select g.Key).Count() > 0)
             {
                 throw new InvalidOperationException("Employee contains more than one manager");
+            }
+
+            //Validate CEO
+            if (hierarchyList.Where(x => string.IsNullOrEmpty(x.ManagerId)).ToList().Count > 1)
+            {
+                throw new InvalidOperationException("More than one CEO");
             }
 
             Console.ReadKey();

@@ -19,10 +19,13 @@ namespace EmployeeHierarchy
 
             //Validate Employee
             ValidateEmployee();
+
+            //Validate CEO
+            ValidateCEO();
         }
 
         //Validate Salaries
-        public void ValidateSalaries()
+        private void ValidateSalaries()
         {
             foreach (var lineData in csv.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries))
             {
@@ -40,7 +43,7 @@ namespace EmployeeHierarchy
         }
 
         //Validate Employee
-        public void ValidateEmployee()
+        private void ValidateEmployee()
         {
             if ((from e in hierarchyList
                  group e by e.EmployeeId into g
@@ -48,6 +51,15 @@ namespace EmployeeHierarchy
                  select g.Key).Count() > 0)
             {
                 throw new InvalidOperationException("Employee contains more than one manager");
+            }
+        }
+
+        //Validate CEO
+        private void ValidateCEO()
+        {
+            if (hierarchyList.Where(x => string.IsNullOrEmpty(x.ManagerId)).ToList().Count > 1)
+            {
+                throw new InvalidOperationException("More than one CEO");
             }
         }
     }
