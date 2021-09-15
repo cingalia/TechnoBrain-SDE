@@ -7,23 +7,10 @@ namespace Exercise02
     {
         static void Main(string[] args)
         {
-            
-            
+            //Main Method
             Interact();
 
-            Console.ReadKey();
-
-            //var input = Console.ReadLine();
-            //if (input == "Y")
-            //{
-            //    Interact();
-            //}
-            //else
-            //{
-            //    Console.ReadKey();
-            //}
-
-            
+            Console.ReadKey();    
         }
 
         static void Interact()
@@ -38,10 +25,14 @@ namespace Exercise02
 
             var _output = Exercise01.Exercise01.Towards(amount_int);
 
-            var output = ReplaceLast(",", " and ", _output);
+            int pos = _output.LastIndexOf(" ") + 1;
+            var lastWordAfterComma = _output.Substring(pos, _output.Length - pos);
 
+            var output = lastWordAfterComma.Contains("-")
+                ? ReplaceLast(lastWordAfterComma, " and " + lastWordAfterComma, _output)
+                : ReplaceLast(",", " and ", _output);
             Console.WriteLine(output);
-
+            
             Interact();
         }
 
